@@ -1,0 +1,33 @@
+<div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+  <div class="flex justify-between items-center p-4 bg-gray-50 border-b border-gray-200">
+    <h2 class="text-lg font-medium text-gray-800">JPA Entity</h2>
+    <button 
+      *ngIf="jpaOutput"
+      (click)="copyToClipboard()"
+      class="text-sm text-blue-600 hover:text-blue-800 flex items-center"
+    >
+      <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+      </svg>
+      {{ copySuccess ? 'Copied!' : 'Copy Code' }}
+    </button>
+  </div>
+  <div class="p-4">
+    <div class="bg-gray-900 rounded-md">
+      <div class="flex items-center px-4 py-2 bg-gray-800 rounded-t-md border-b border-gray-700">
+        <div class="flex space-x-1">
+          <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+          <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+        </div>
+        <span class="ml-2 text-xs text-gray-400">{{getEntityName(jpaEntityName)}}</span>
+      </div>
+      <pre class="p-4 overflow-auto h-64 text-sm text-gray-200 font-mono">
+        <code *ngIf="jpaOutput; else emptyState" [innerHTML]="highlightEntityCode(jpaOutput)"></code>
+        <ng-template #emptyState>
+          <code>// JPA entity code will appear here after conversion</code>
+        </ng-template>
+      </pre>
+    </div>
+  </div>
+</div>

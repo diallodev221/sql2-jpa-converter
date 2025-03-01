@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Additional global styles can be added here */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  @apply bg-gray-50;
+}
+
+.app-container {
+  @apply flex flex-col min-h-screen;
+}
+
+/* For code highlighting */
+.hljs {
+  @apply bg-gray-900 text-gray-200;
+}

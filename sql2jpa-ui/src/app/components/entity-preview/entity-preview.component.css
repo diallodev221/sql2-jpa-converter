@@ -1,0 +1,7 @@
+ pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-x: auto;
+        border-radius: 8px;
+        padding: 1rem;
+      }

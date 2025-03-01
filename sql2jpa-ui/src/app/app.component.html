@@ -1,0 +1,45 @@
+<!-- <div class="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+      <div>
+        <h1 class="text-3xl font-semibold text-gray-900 mb-4">SQL to JPA Converter</h1>
+      <textarea
+        [(ngModel)]="sqlInput"
+        class="w-full max-w-lg h-32 p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter SQL Schemas (multiple schemas allowed)..."
+      ></textarea>
+      <button
+        (click)="convertToJpa()"
+        class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md shadow-md"
+      >
+        Convert to JPA
+      </button>
+
+      </div>
+      <app-entity-preview  [entityCode]="generatedCode"></app-entity-preview>
+    </div> -->
+
+    <div class="app-container">
+  <app-header [title]="title"></app-header>
+  
+  <main class="container mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <app-sql-input 
+        [sqlInput]="sqlInput"
+        [isLoading]="isLoading"
+        (sqlChanged)="onSqlInputChanged($event)"
+        (convertClicked)="setLoading(true)"
+        [options]="conversionOptions"
+        (optionsChanged)="onOptionsChanged($event)"
+        (conversionCompleted)="onConversionCompleted($event)">
+      </app-sql-input>
+      
+      <app-jpa-output 
+        [jpaOutput]="jpaOutput" 
+        [isLoading]="isLoading">
+      </app-jpa-output>
+    </div>
+    
+    <app-how-it-works></app-how-it-works>
+  </main>
+  
+  <app-footer></app-footer>
+</div>
